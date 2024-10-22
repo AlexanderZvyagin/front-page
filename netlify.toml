@@ -1,0 +1,3 @@
+[[redirects]]
+  from = "/mc-engine/*"
+  to = "http://az.hopto.org:8000:splat"

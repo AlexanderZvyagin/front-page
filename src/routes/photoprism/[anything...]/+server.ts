@@ -3,7 +3,7 @@
 import { json } from "@sveltejs/kit";
 import type { RequestHandler } from "@sveltejs/kit";
 
-const server = 'http://az.hopto.org:2342'
+const server = 'https://az.hopto.org:2342'
 const get_path = (event) => `${server}/${event.params.anything}`;
 
 export async function GET(event: RequestHandler): Promise<Response> {

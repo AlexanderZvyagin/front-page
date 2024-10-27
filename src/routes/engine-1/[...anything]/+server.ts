@@ -3,7 +3,7 @@
 import { json } from "@sveltejs/kit";
 import type { RequestHandler } from "@sveltejs/kit";
 
-const server = 'http://az.hopto.org:8000'
+const server = 'http://az.hopto.org:8080'
 const get_path = (event) => `${server}/${event.params.anything}`;
 
 export async function GET(event: RequestHandler): Promise<Response> {
@@ -11,11 +11,13 @@ export async function GET(event: RequestHandler): Promise<Response> {
 }
 
 export async function POST(event: RequestHandler): Promise<Response> {
+    const body = await event.request.json();
+
     return fetch(
         get_path(event),
         {
             method  : 'POST',
-            body    : await event.request.json()
+            body    : JSON.stringify(body)
         }
     );
 }
